@@ -13,19 +13,21 @@
   <div class="todo-list">
     <div class="form">
       <input type="text", class="input-item", id="input-box", placeholder="Add Task"/>
-      <input type="date", class="date-item", id="date-box"/>
       <select name="course" id="course" class="course">
-        <option value="class 1"> Class 1 </option>
-        <option value="class 2"> Class 2 </option>
-        <option value="class 3"> Class 3 </option>
-        <option value="class 4"> Class 4 </option>
+        <option value="Class 1"> Class 1 </option>
+        <option value="Class 2"> Class 2 </option>
+        <option value="Class 3"> Class 3 </option>
+        <option value="Class 4"> Class 4 </option>
       </select>
+      <input type="date", class="date-item", id="date-box"/>
 
-      <button onclick="addItem()"> Add </button>
+      <button id="add-list" onclick="addItem()"> Add </button>
     </div>
 
     <h2> Task List </h2>
-    <ul id="list"></ul>
+    <ul id="list-spot">
+      <li> Done | Task | Course | Due Date </li>
+    </ul>
   </div>
   <script src="script.js"></script>
 </body>
