@@ -1,7 +1,7 @@
 const inputItem = document.getElementById("input-box");
 const dateItem = document.getElementById("date-box");
 const courseItems = document.getElementById("course");
-const taskList = document.getElementById("list-spot"); 
+const taskList = document.getElementById("task-list"); 
 const now = document.getElementById("today");
 const today = new Date(); 
 now.textContent = formatDate(today);
@@ -17,29 +17,29 @@ function addItem(){
     }
     const dateObj = new Date(`${date}T00:00:00`);
     const formatDue = formatDate(dateObj); 
-    
-    const li = document.createElement("li");
-    li.innerHTML = ` 
-    <input type="checkbox"> 
-    <label>
-        <span class="task" id="task">${input}</span> |
-        <span class="course" id="course">${course}</span> |
-        <span class="date" id="date">${formatDue}</span> 
-    </label>
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = ` 
+    <tr>
+        <td><input type="checkbox"></td>
+        <td class="task" id="task">${input}</td> 
+        <td class="course" id="course">${course}</td> 
+        <td class="date" id="date">${formatDue}</td> 
+    </tr>
     `
 
-    taskList.appendChild(li);
+    taskList.appendChild(tr);
     inputItem.value = ""; 
     dateItem.value = ""; 
 
-    const check = li.querySelector("input"); 
+    const check = tr.querySelector("input"); 
 
     check.addEventListener("click", function () {
-        li.classList.toggle("completed", check.checked); 
+        tr.classList.toggle("completed", check.checked); 
     });
 
-     const editTask = li.querySelector(".task");
-     const taskSpan = li.querySelector("#task");
+     const editTask = tr.querySelector(".task");
+     const taskSpan = tr.querySelector("#task");
      editTask.addEventListener("click", function () {
         const updateTask = document.createElement("input"); 
         updateTask.type = "text";
@@ -66,8 +66,8 @@ function addItem(){
         });
     });
 
-    const editDate = li.querySelector(".date");
-    const dateSpan = li.querySelector("#date");
+    const editDate = tr.querySelector(".date");
+    const dateSpan = tr.querySelector("#date");
     editDate.addEventListener("click", function () {
         const editInput = document.createElement("input");
         editInput.type = "date"; 
@@ -86,14 +86,10 @@ function addItem(){
         }
 
         editInput.addEventListener("change", saveDate);
-        editInput.addEventListener("keydown", function (e) {
-            if (e.key === "Enter") {
-                saveTask(); 
-            }
-        });
+        editInput.addEventListener("blur", saveDate);
     });
 
-    const courseSpan = li.querySelector(".course");
+    const courseSpan = tr.querySelector(".course");
     courseSpan.addEventListener("click", function () {
         const editSelect = courseItems.cloneNode(true);
         editSelect.removeAttribute("id"); // Avoid duplicate IDs on the page

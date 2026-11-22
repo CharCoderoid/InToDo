@@ -7,6 +7,7 @@
   <meta name="description" content="A ToDo List effecient for students">
   <title>InToDo</title>
   <link rel="stylesheet" href="css/styles.css">
+  
 </head>
 <body>
   <h1> InToDo </h1>
@@ -25,10 +26,11 @@
       <button id="add-list" onclick="addItem()"> Add </button>
     </div>
 
-    <h2> Task List </h2>
-    <ul id="list-spot">
-      <li> Done | Task | Course | Due Date </li>
-    </ul>
+    <h2> Tasks </h2>
+
+    <table class="task-table" id="task-list">
+      <tr><th>Done</th><th>Task Name</th><th>Course</th><th>Due Date</th></tr>
+    </table>
   </div>
   <script src="script.js"></script>
 </body>
