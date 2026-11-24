@@ -21,7 +21,7 @@ function addItem(){
     const tr = document.createElement("tr");
     tr.innerHTML = ` 
     <tr>
-        <td><input type="checkbox"></td>
+        <td><input type="checkbox" class="checkbox"></td>
         <td class="task" id="task">${input}</td> 
         <td class="course" id="course">${course}</td> 
         <td class="date" id="date">${formatDue}</td> 
@@ -32,7 +32,7 @@ function addItem(){
     inputItem.value = ""; 
     dateItem.value = ""; 
 
-    const check = tr.querySelector("input"); 
+    const check = tr.querySelector(".checkbox"); 
 
     check.addEventListener("click", function () {
         tr.classList.toggle("completed", check.checked); 
@@ -53,6 +53,7 @@ function addItem(){
             if (updated !== ""){
                 taskSpan.textContent = updated;
                 check.checked = false;
+                tr.classList.remove("completed"); 
             }
 
             updateTask.replaceWith(taskSpan); 
@@ -81,6 +82,8 @@ function addItem(){
                 const newDateObj = new Date(`${editInput.value}T00:00:00`);
                 dateSpan.textContent = formatDate(newDateObj); 
                 dateSpan.dataset.rawDate = editInput.value; 
+                check.checked = false;
+                tr.classList.remove("completed"); 
             }
             editInput.replaceWith(dateSpan); 
         }
@@ -101,6 +104,8 @@ function addItem(){
         function saveCourse() {
             if (editSelect.value) {
                 courseSpan.textContent = editSelect.value;
+                check.checked = false;
+                tr.classList.remove("completed"); 
             }
             editSelect.replaceWith(courseSpan); 
         }

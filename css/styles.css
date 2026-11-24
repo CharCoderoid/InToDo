@@ -9,12 +9,15 @@ body {
 /* Task List Style */
 
 .task-table{
-    th, td{
+    th, td, .course, input[type="date"], input[type="text"]{
+        font-family: "Roboto", sans-serif;
         border: 1px solid black;
         padding: 2rem 1.5rem;
         text-align: center;
     }
+
 }
+
 .completed {
     text-decoration: line-through;
 }
