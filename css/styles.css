@@ -1,17 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* // MY CODE */ 
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+    --BG-Color: white; 
+    --font-color: #37352f;
+    --add-btn-color: #bebcb7;
+    --add-hover-color: #a7a7a6;
+}
 
 body {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
+    color: var(--font-color);
+    background-color: var(--BG-Color);
+    margin: 1.5rem;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+}
+
+h1{
+    margin-bottom: 0;
+}
+
+p{
+    margin: 0.5rem 0 2rem;
+    font-style: italic;
+}
+.today{
+    font-weight: bold;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.12),
+        0 -4px 6px rgba(0, 0, 0, 0.12);
+}
+
+.input-item, .course-input, .date-item, .add-btn{
+    font-family: "Roboto", sans-serif;
+    border: 1px solid rgb(163, 170, 177);
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+.input-item {
+    flex: 1;
+}
+
+.add-btn{
+    background-color: var(--add-btn-color);
+}
+
+.add-btn:hover {
+    background-color: var(--add-hover-color);
+}
+
+.add-btn:hover, .input-item:focus, .course:focus, .date-item:focus, .add-btn:focus {
+    border: 1.5px solid black;
 }
 
 /* Task List Style */
 
 .task-table{
-    th, td, .course, input[type="date"], input[type="text"]{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    th, td, .course-input, input[type="date"], input[type="text"]{
+        border: 0.5px solid black;
         font-family: "Roboto", sans-serif;
-        border: 1px solid black;
         padding: 2rem 1.5rem;
         text-align: center;
     }
@@ -21,3 +89,4 @@ body {
 .completed {
     text-decoration: line-through;
 }
+

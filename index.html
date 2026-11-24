@@ -10,12 +10,14 @@
   
 </head>
 <body>
-  <h1> InToDo </h1>
-  <p>Today is <span id="today"></span></p>
+  <header>
+    <h1> InToDo </h1>
+    <p>Today is <span id="today" class="today"></span></p>
+  </header>
   <div class="todo-list">
     <div class="form">
       <input type="text", class="input-item", id="input-box", placeholder="Add Task"/>
-      <select name="course" id="course" class="course">
+      <select name="course" id="course" class="course-input">
         <option value="Class 1"> Class 1 </option>
         <option value="Class 2"> Class 2 </option>
         <option value="Class 3"> Class 3 </option>
@@ -23,7 +25,7 @@
       </select>
       <input type="date", class="date-item", id="date-box"/>
 
-      <button id="add-list" onclick="addItem()"> Add </button>
+      <button id="add-list" class="add-btn" onclick="addItem()"> Add </button>
     </div>
 
     <h2> Tasks </h2>
